@@ -1,0 +1,17 @@
+{% extends 'admin/change_form.html' %}
+
+{% block object-tools-items %}
+    
+        <form action={% url 'update-password-by-admin'  %} method="POST" onsubmit="">
+            
+            {% csrf_token %}
+            
+            <div class="submit-row">
+            <input type="hidden"  name="user_id" value={{id}} />
+            <input type="submit" value="Change Password" />
+            </div>
+
+        </form>
+        {{ block.super }}
+
+{% endblock %}

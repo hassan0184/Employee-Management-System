@@ -1,0 +1,58 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+{% load static %}
+<style>
+  .form-group{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    margin-left: 2%;
+}
+
+.form-input-Field{
+
+  display: flex;
+    justify-content: center;
+    width: 100%;
+margin-left: 5%;
+margin-bottom: 2%;
+}
+
+.form-input-style{
+    font-size: 14px;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 10px;
+}
+ button{
+ 
+ color: rgb(37, 39, 39);
+ border: 2px solid #8b8686a1; /* Green */
+ border-radius: 4px;
+ padding: 6px 70px 6px 25px;
+margin-top: 2%;
+
+ font-size: 14px;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 70px;
+
+ }
+  </style>
+
+<div class="container">
+  <form enctype="multipart/form-data" action={% url 'upload_attendence_file' %} method="POST" onsubmit="" class="form-group">
+    {% csrf_token %}
+    <h1>Upload Attendence File</h1>
+
+    <div class="form-group">
+      <input name="fileInput" accept=".csv" id="fileInput" type="file" />
+      <button type="submit" class="btn">Upload</button>
+    </div>
+    <hr style="margin-top: 20px;">
+
+  </form>
+</div>
+
+{% endblock content %}
